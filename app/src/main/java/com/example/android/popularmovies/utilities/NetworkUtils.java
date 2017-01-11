@@ -31,7 +31,7 @@ public class NetworkUtils {
 
     // this is the API key we will use to access theMovieDB
     // TODO: Change this API Key to your own key
-    private static final String API_KEY = "843d291cdd0a192bb997da4c2872852e";
+    private static final String API_KEY = "";
 
     // Constant strings for URLs we will use to display the movies on the main activity.
     private static final String TOP_RATED_URL = "http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY;

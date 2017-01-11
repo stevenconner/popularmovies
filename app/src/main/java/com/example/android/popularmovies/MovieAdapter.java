@@ -111,7 +111,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
         // This gets called when a child view is clicked.
         @Override
         public void onClick(View v) {
-            // TODO: check mClickHandler in sunshine app and figure out if i need it.
             int adapterPosition = getAdapterPosition();
             mClickHandler.onClick(String.valueOf(adapterPosition));
         }
