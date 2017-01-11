@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="sort_most_popular">Most Popular</string>
+    <string name="sort_highest_rated">Highest Rated</string>
+    <string name="details_release_date">Release date: </string>
+    <string name="details_average_vote">Average Rating: </string>
+    <string name="error_no_movies_to_display">An error has occurred. Are you connected to the internet?</string>
+</resources>
