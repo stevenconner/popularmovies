@@ -1,7 +1,10 @@
 package com.example.android.popularmovies;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -96,16 +99,27 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context
+                .CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         switch (id) {
             case R.id.action_sort_most_popular:
                 sortBy = settings.getBoolean("sortPreference", true);
-                loadMovieData();
-                mMovieAdapter.notifyDataSetChanged();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    loadMovieData();
+                    mMovieAdapter.notifyDataSetChanged();
+                } else {
+                    showErrorMessage();
+                }
                 break;
             case R.id.action_sort_highest_rated:
                 sortBy = settings.getBoolean("sortPreference", false);
-                loadMovieData();
-                mMovieAdapter.notifyDataSetChanged();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    loadMovieData();
+                    mMovieAdapter.notifyDataSetChanged();
+                } else {
+                    showErrorMessage();
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
