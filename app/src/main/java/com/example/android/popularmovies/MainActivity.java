@@ -107,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter
                 sortBy = settings.getBoolean("sortPreference", true);
                 if (networkInfo != null && networkInfo.isConnected()) {
                     loadMovieData();
-                    mMovieAdapter.notifyDataSetChanged();
                 } else {
                     showErrorMessage();
                 }
@@ -116,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter
                 sortBy = settings.getBoolean("sortPreference", false);
                 if (networkInfo != null && networkInfo.isConnected()) {
                     loadMovieData();
-                    mMovieAdapter.notifyDataSetChanged();
                 } else {
                     showErrorMessage();
                 }
